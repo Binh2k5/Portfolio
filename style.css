@@ -69,7 +69,7 @@ body *:focus-visible {
 .navbar {
     background-color: #fff;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: var(--space-sm) var(--space-md);
     position: fixed;
