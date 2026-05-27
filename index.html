@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Hữu Bình - Professional Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-logo" aria-label="Nguyễn Hữu Bình Initials">NHB</div>
+        
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <ul id="nav-menu" class="nav-links" role="menubar">
+            <li role="none"><a href="#home" role="menuitem">Home</a></li>
+            <li role="none"><a href="#about" role="menuitem">About</a></li>
+            <li role="none"><a href="#skills" role="menuitem">Skills</a></li>
+            <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+            <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        
+        <header id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>Hi, I'm Nguyễn Hữu Bình</h1>
+                <p>Intern Developer | Software Engineering Student</p>
+                <a href="#projects" class="btn-primary" aria-label="Navigate to my projects section">View My Work</a>
+            </div>
+        </header>
+
+        <section id="about" class="section" aria-labelledby="about-heading">
+            <h2 id="about-heading" class="section-title">About Me</h2>
+            <div class="about-container">
+                <p>I am a third-year Software Engineering student at FPT University with a cumulative GPA of 3.1/4.0. Dedicated to backend development using Java while building competencies in Python to pursue a long-term pathway as an AI Developer. Eager to learn, adapt to professional workflows, and tackle real-world development challenges.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="section bg-light" aria-labelledby="skills-heading">
+            <h2 id="skills-heading" class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <article class="skill-category">
+                    <h3>Development</h3>
+                    <p>Java, Python, SQL Server, HTML, CSS, JavaScript, TypeScript</p>
+                </article>
+                <article class="skill-category">
+                    <h3>Languages</h3>
+                    <p>English (B2), Chinese (HSK4), Japanese (N4)</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="projects" class="section" aria-labelledby="projects-heading">
+            <h2 id="projects-heading" class="section-title">Projects</h2>
+            
+            <div class="filter-container" role="tablist" aria-label="Filter Projects by Technology">
+                <button class="filter-btn active" role="tab" aria-selected="true" data-filter="all">All Projects</button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="java">Java Applications</button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="web">Web Front-end</button>
+            </div>
+
+            <div class="projects-grid">
+                <article class="project-card" data-category="java" transform-style="preserve-3d">
+                    <h3>Pro Online Educating Tech</h3>
+                    <p class="tech-stack">Java (Servlet/JSP), SQL Server, Spring Security Crypto</p>
+                    <p>An online learning management system that empowers instructors to handle classrooms and exams while enabling student assessments.</p>
+                </article>
+                
+                <article class="project-card" data-category="java">
+                    <h3>FoodShop Website (Frean)</h3>
+                    <p class="tech-stack">Java, SQL Server, HTML/CSS</p>
+                    <p>An e-commerce food platform allowing users to browse items, process shopping carts, and handle order status tracking.</p>
+                </article>
+
+                <article class="project-card" data-category="web">
+                    <h3>Responsive Portfolio</h3>
+                    <p class="tech-stack">HTML, CSS, JavaScript</p>
+                    <p>A clean, responsive personal portfolio website showcasing profile summaries, core skills, projects, and certifications.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="section bg-light" aria-labelledby="contact-heading">
+            <h2 id="contact-heading" class="section-title">Contact Me</h2>
+            <div class="contact-container">
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');" aria-label="Contact form">
+                    <div class="form-group">
+                        <label for="form-name">Your Name</label>
+                        <input type="text" id="form-name" placeholder="Name" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email">Your Email</label>
+                        <input type="email" id="form-email" placeholder="Email" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="form-message">Your Message</label>
+                        <textarea id="form-message" placeholder="Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+                
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <p><strong>Email:</strong> <a href="mailto:nguyenhuubinh2k5@gmail.com">nguyenhuubinh2k5@gmail.com</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:0846790998">0846790998</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/Binh2k5" target="_blank" rel="noopener">github.com/Binh2k5</a></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2026 Nguyễn Hữu Bình. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
