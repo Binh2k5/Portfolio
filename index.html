@@ -8,453 +8,508 @@
         /* ==========================================================================
            DESIGN TOKENS & PREMIUM DARK THEME
            ========================================================================== */
-:root {
-    --bg-main: #0f172a;
-    /* Slate 900 - Nền tối sâu */
-    --bg-card: #1e293b;
-    /* Slate 800 - Nền thẻ */
-    --text-main: #f8fafc;
-    /* Slate 50 - Chữ chính sáng rõ */
-    --text-muted: #94a3b8;
-    /* Slate 400 - Chữ ghi chú */
-    --accent-color: #38bdf8;
-    /* Sky 400 - Xanh Neon Công Nghệ */
-    --focus-outline: #f59e0b;
-    /* Màu cam cảnh báo focus */
+        :root {
+            --bg-main: #0f172a; /* Slate 900 - Nền tối sâu */
+            --bg-card: #1e293b; /* Slate 800 - Nền thẻ */
+            --text-main: #f8fafc; /* Slate 50 - Chữ chính sáng rõ */
+            --text-muted: #94a3b8; /* Slate 400 - Chữ ghi chú */
+            --accent-color: #38bdf8; /* Sky 400 - Xanh Neon Công Nghệ */
+            --focus-outline: #f59e0b; /* Màu cam cảnh báo focus */
 
-    --space-sm: 12px;
-    --space-md: 24px;
-    --space-lg: 48px;
+            --space-sm: 12px;
+            --space-md: 24px;
+            --space-lg: 48px;
 
-    --font-xs: 0.875rem;
-    --font-base: 1rem;
-    --font-md: 1.25rem;
-    --font-lg: 1.75rem;
-    --font-xl: 2.5rem;
+            --font-xs: 0.875rem;
+            --font-base: 1rem;
+            --font-md: 1.25rem;
+            --font-lg: 1.75rem;
+            --font-xl: 2.5rem;
 
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-/* Reset & Base Styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    scroll-behavior: smooth;
-    padding-top: 70px;
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+            padding-top: 70px;
+        }
 
-/* Accessibility Focus */
-body *:focus-visible {
-    outline: 3px dashed var(--focus-outline);
-    outline-offset: 4px;
-}
+        /* Accessibility Focus */
+        body *:focus-visible {
+            outline: 3px dashed var(--focus-outline);
+            outline-offset: 4px;
+        }
 
-.skip-link {
-    position: absolute;
-    top: -100px;
-    left: 0;
-    background: var(--focus-outline);
-    color: #000;
-    padding: var(--space-sm);
-    z-index: 2000;
-    font-weight: bold;
-    transition: top 0.2s;
-}
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--focus-outline);
+            color: #000;
+            padding: var(--space-sm);
+            z-index: 2000;
+            font-weight: bold;
+            transition: top 0.2s;
+        }
 
-.skip-link:focus {
-    top: 0;
-}
+        .skip-link:focus {
+            top: 0;
+        }
 
-/* ==========================================================================
+        /* ==========================================================================
            NAVIGATION BAR (Sticky & Transparent Blur)
            ========================================================================== */
-.navbar {
-    background-color: rgba(30, 41, 59, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px var(--space-md);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
+        .navbar {
+            background-color: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px var(--space-md);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-.nav-logo {
-    font-size: var(--font-md);
-    font-weight: 800;
-    color: var(--accent-color);
-    letter-spacing: 1px;
-}
+        .nav-logo {
+            font-size: var(--font-md);
+            font-weight: 800;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+        }
 
-.menu-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 8px;
-}
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+        }
 
-.menu-toggle .bar {
-    background-color: var(--text-main);
-    height: 3px;
-    width: 25px;
-    border-radius: 2px;
-    transition: var(--transition-smooth);
-}
+        .menu-toggle .bar {
+            background-color: var(--text-main);
+            height: 3px;
+            width: 25px;
+            border-radius: 2px;
+            transition: var(--transition-smooth);
+        }
 
-.nav-links {
-    background-color: var(--bg-card);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    display: none;
-    flex-direction: column;
-    left: 0;
-    list-style: none;
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
+        .nav-links {
+            background-color: var(--bg-card);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            display: none;
+            flex-direction: column;
+            left: 0;
+            list-style: none;
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-.nav-links.active {
-    display: flex;
-}
+        .nav-links.active {
+            display: flex;
+        }
 
-.nav-links li a {
-    display: block;
-    padding: 15px var(--space-md);
-    text-decoration: none;
-    color: var(--text-main);
-    font-weight: 500;
-    transition: var(--transition-smooth);
-}
+        .nav-links li a {
+            display: block;
+            padding: 15px var(--space-md);
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
 
-.nav-links li a:hover {
-    color: var(--accent-color);
-    background-color: rgba(255, 255, 255, 0.02);
-}
+        .nav-links li a:hover {
+            color: var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.02);
+        }
 
-/* ==========================================================================
-           HERO SECTION WITH PORTRAIT IMAGE
+        /* ==========================================================================
+           HERO SECTION WITH PORTRAIT IMAGE & ICON CTA
            ========================================================================== */
-.hero-section {
-    min-height: calc(100vh - 70px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: var(--space-lg) var(--space-md);
-    background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.1), transparent 40%);
-}
+        .hero-section {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: var(--space-lg) var(--space-md);
+            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.1), transparent 40%);
+        }
 
-.hero-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-md);
-    text-align: center;
-    max-width: 900px;
-    width: 100%;
-}
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+            text-align: center;
+            max-width: 900px;
+            width: 100%;
+        }
 
-/* Profile Image Container */
-.hero-avatar-wrapper {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    padding: 5px;
-    background: linear-gradient(135deg, var(--accent-color), #818cf8);
-    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
-}
+        .hero-avatar-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, var(--accent-color), #818cf8);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+        }
 
-.hero-avatar {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    background-color: var(--bg-card);
-}
+        .hero-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: var(--bg-card);
+        }
 
-.hero-content h1 {
-    font-size: var(--font-xl);
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    margin-bottom: var(--space-sm);
-}
+        .hero-content h1 {
+            font-size: var(--font-xl);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: var(--space-sm);
+        }
 
-.hero-content p {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    margin-bottom: var(--space-md);
-    font-weight: 300;
-}
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: var(--space-md);
+            font-weight: 300;
+        }
 
-/* ==========================================================================
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-social-links {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+        }
+
+        .social-icon-link {
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-icon-link:hover {
+            color: var(--accent-color);
+            background: rgba(56, 189, 248, 0.1);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================================================
            LAYOUT SECTIONS & CARDS
            ========================================================================== */
-.section {
-    padding: var(--space-lg) var(--space-md);
-    max-width: 1100px;
-    margin: 0 auto;
-}
+        .section {
+            padding: var(--space-lg) var(--space-md);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-.bg-gradient-side {
-    background-color: rgba(30, 41, 59, 0.3);
-    border-radius: 16px;
-}
+        .bg-gradient-side {
+            background-color: rgba(30, 41, 59, 0.3);
+            border-radius: 16px;
+        }
 
-.section-title {
-    font-size: var(--font-lg);
-    font-weight: 700;
-    margin-bottom: var(--space-md);
-    color: var(--text-main);
-    position: relative;
-    padding-left: 15px;
-}
+        .section-title {
+            font-size: var(--font-lg);
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            color: var(--text-main);
+            position: relative;
+            padding-left: 15px;
+        }
 
-.section-title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 15%;
-    height: 70%;
-    width: 4px;
-    background-color: var(--accent-color);
-    border-radius: 2px;
-}
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            height: 70%;
+            width: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
 
-/* Grids & Frameworks */
-.skills-grid,
-.projects-grid,
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-}
+        /* Grids & Frameworks */
+        .skills-grid,
+        .projects-grid,
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+        }
 
-.skill-category,
-.project-card {
-    background-color: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    padding: var(--space-md);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    transition: var(--transition-smooth);
-}
+        .skill-category,
+        .project-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: var(--space-md);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: var(--transition-smooth);
+        }
 
-.project-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(56, 189, 248, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
 
-.skill-category h3,
-.project-card h3 {
-    font-size: 1.2rem;
-    color: var(--text-main);
-    margin-bottom: 10px;
-}
+        .skill-category h3,
+        .project-card h3 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
 
-.tech-stack {
-    font-size: var(--font-xs);
-    color: var(--accent-color);
-    font-weight: 600;
-    margin-bottom: var(--space-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
+        .tech-stack {
+            font-size: var(--font-xs);
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-/* Filter Tabs */
-.filter-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-md);
-}
+        /* Filter Tabs */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
 
-.filter-btn {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid transparent;
-    color: var(--text-muted);
-    padding: 8px 18px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: var(--font-xs);
-    font-weight: 600;
-    transition: var(--transition-smooth);
-}
+        .filter-btn {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid transparent;
+            color: var(--text-muted);
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: var(--font-xs);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
 
-.filter-btn:hover,
-.filter-btn.active {
-    background-color: rgba(56, 189, 248, 0.1);
-    color: var(--accent-color);
-    border-color: rgba(56, 189, 248, 0.2);
-}
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            border-color: rgba(56, 189, 248, 0.2);
+        }
 
-/* ==========================================================================
-           CONTACT FORM UI
+        /* ==========================================================================
+           CONTACT FORM & ICON LIST UI
            ========================================================================== */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-}
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
 
-.form-group label {
-    font-size: var(--font-xs);
-    font-weight: 600;
-    color: var(--text-muted);
-}
+        .form-group label {
+            font-size: var(--font-xs);
+            font-weight: 600;
+            color: var(--text-muted);
+        }
 
-.form-group input,
-.form-group textarea {
-    padding: var(--space-sm);
-    background-color: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    color: var(--text-main);
-    font-family: inherit;
-    font-size: var(--font-base);
-    transition: var(--transition-smooth);
-}
+        .form-group input,
+        .form-group textarea {
+            padding: var(--space-sm);
+            background-color: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: var(--font-base);
+            transition: var(--transition-smooth);
+        }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--accent-color);
-    outline: none;
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.15);
-}
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.15);
+        }
 
-/* Buttons & Badges */
-.btn-primary {
-    background: linear-gradient(135deg, #0ea5e9, #2563eb);
-    color: #fff;
-    padding: 12px var(--space-md);
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: var(--font-base);
-    font-weight: 600;
-    text-decoration: none;
-    text-align: center;
-    display: inline-block;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-    transition: var(--transition-smooth);
-}
+        /* Buttons & Badges */
+        .btn-primary {
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            color: #fff;
+            padding: 12px var(--space-md);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: var(--font-base);
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            transition: var(--transition-smooth);
+        }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-}
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
 
-.contact-info h3 {
-    margin-bottom: var(--space-sm);
-}
+        .contact-info h3 {
+            margin-bottom: var(--space-sm);
+        }
 
-.contact-info p {
-    margin-bottom: var(--space-sm);
-    color: var(--text-muted);
-}
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
 
-.contact-info a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-.contact-info a:hover {
-    text-decoration: underline;
-}
+        .contact-item-icon {
+            color: var(--accent-color);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
 
-footer {
-    background-color: #0b0f19;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--text-muted);
-    text-align: center;
-    padding: var(--space-md);
-    font-size: var(--font-xs);
-    margin-top: var(--space-lg);
-}
+        .contact-info p {
+            margin-bottom: 0;
+            color: var(--text-muted);
+        }
 
-/* ==========================================================================
+        .contact-info a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #0b0f19;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            text-align: center;
+            padding: var(--space-md);
+            font-size: var(--font-xs);
+            margin-top: var(--space-lg);
+        }
+
+        /* ==========================================================================
            DESKTOP RESPONSIVE HOOKS (Media Queries)
            ========================================================================== */
-@media (min-width: 768px) {
-    .menu-toggle {
-        display: none;
-    }
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
 
-    .nav-links {
-        display: flex;
-        flex-direction: row;
-        position: static;
-        box-shadow: none;
-        width: auto;
-        background: none;
-        border: none;
-    }
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                box-shadow: none;
+                width: auto;
+                background: none;
+                border: none;
+            }
 
-    .nav-links li {
-        margin-left: var(--space-md);
-    }
+            .nav-links li {
+                margin-left: var(--space-md);
+            }
 
-    .nav-links li a {
-        padding: 5px 10px;
-    }
+            .nav-links li a {
+                padding: 5px 10px;
+            }
 
-    .nav-links li a:hover {
-        background: none;
-    }
+            .nav-links li a:hover {
+                background: none;
+            }
 
-    .hero-container {
-        flex-direction: row;
-        text-align: left;
-        gap: var(--space-lg);
-    }
+            .hero-container {
+                flex-direction: row;
+                text-align: left;
+                gap: var(--space-lg);
+            }
 
-    .hero-avatar-wrapper {
-        width: 260px;
-        height: 260px;
-        flex-shrink: 0;
-    }
+            .hero-cta-group {
+                justify-content: flex-start;
+            }
 
-    .hero-content h1 {
-        font-size: 3.25rem;
-    }
+            .hero-avatar-wrapper {
+                width: 260px;
+                height: 260px;
+                flex-shrink: 0;
+            }
 
-    .section {
-        padding: var(--space-lg) var(--space-md);
-    }
+            .hero-content h1 {
+                font-size: 3.25rem;
+            }
 
-    .skills-grid,
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+            .section {
+                padding: var(--space-lg) var(--space-md);
+            }
 
-    .contact-container {
-        grid-template-columns: 3fr 2fr;
-        gap: var(--space-lg);
-    }
-}
-        </style>
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-container {
+                grid-template-columns: 3fr 2fr;
+                gap: var(--space-lg);
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -488,7 +543,24 @@ footer {
                 <div class="hero-content">
                     <h1>Hi, I'm Nguyễn Hữu Bình</h1>
                     <p>Intern Developer | Software Engineering Student</p>
-                    <a href="#projects" class="btn-primary" aria-label="Navigate to my projects section">View My Work</a>
+                    
+                    <div class="hero-cta-group">
+                        <a href="#projects" class="btn-primary" aria-label="Navigate to my projects section">View My Work</a>
+                        <div class="hero-social-links">
+                            <a href="mailto:nguyenhuubinh2k5@gmail.com" class="social-icon-link" aria-label="Send an Email">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            </a>
+                            <a href="tel:0846790998" class="social-icon-link" aria-label="Call Phone Number">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.27-.26.35-.65.24-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.59c0-.55-.45-1-1-1z"/></svg>
+                            </a>
+                            <a href="https://github.com/Binh2k5" target="_blank" rel="noopener" class="social-icon-link" aria-label="Visit GitHub Profile">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/nguy%E1%BB%85n-h%E1%BB%AFu-b%C3%ACnh-171904337/" target="_blank" rel="noopener" class="social-icon-link" aria-label="Visit LinkedIn Profile">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
@@ -496,7 +568,7 @@ footer {
         <section id="about" class="section" aria-labelledby="about-heading">
             <h2 id="about-heading" class="section-title">About Me</h2>
             <div class="about-container">
-                <p>I am a third-year Software Engineering student at FPT University with a cumulative GPA of 3.1/4.0. Dedicated to backend development using Java while building competencies in Python to pursue a long-term pathway as an AI Developer. Eager to learn, adapt to professional workflows, and tackle real-world development challenges.</p>
+                <p>I am a third-year Software Engineering student at FPT University with a cumulative GPA of 3.1/4.0 The Titan - Nguyễn Hữu Bình + Java.pdf]. Dedicated to backend development using Java while building competencies in Python to pursue a long-term pathway as an AI Developer The Titan - Nguyễn Hữu Bình + Java.pdf]. Eager to learn, adapt to professional workflows, and tackle real-world development challenges The Titan - Nguyễn Hữu Bình + Java.pdf].</p>
             </div>
         </section>
 
@@ -505,11 +577,11 @@ footer {
             <div class="skills-grid">
                 <article class="skill-category">
                     <h3>Development Stack</h3>
-                    <p style="color: var(--text-muted);">Java, Python, SQL Server, HTML, CSS, JavaScript, TypeScript</p>
+                    <p style="color: var(--text-muted);">Java, Python, SQL Server, HTML, CSS, JavaScript, TypeScript The Titan - Nguyễn Hữu Bình + Java.pdf]</p>
                 </article>
                 <article class="skill-category">
                     <h3>Language Fluency</h3>
-                    <p style="color: var(--text-muted);">English (B2), Chinese (HSK4), Japanese (N4)</p>
+                    <p style="color: var(--text-muted);">English (B2), Chinese (HSK4), Japanese (N4) The Titan - Nguyễn Hữu Bình + Java.pdf]</p>
                 </article>
             </div>
         </section>
@@ -525,15 +597,15 @@ footer {
 
             <div class="projects-grid">
                 <article class="project-card" data-category="java">
-                    <div class="tech-stack">Java (Servlet/JSP), SQL Server, Spring Security</div>
+                    <div class="tech-stack">Java (Servlet/JSP), SQL Server, Spring Security The Titan - Nguyễn Hữu Bình + Java.pdf]</div>
                     <h3>Pro Online Educating Tech</h3>
-                    <p style="color: var(--text-muted);">An online learning management system that empowers instructors to handle classrooms and exams while enabling student assessments.</p>
+                    <p style="color: var(--text-muted);">An online learning management system that empowers instructors to handle classrooms and exams while enabling student assessments The Titan - Nguyễn Hữu Bình + Java.pdf].</p>
                 </article>
                 
                 <article class="project-card" data-category="java">
-                    <div class="tech-stack">Java, SQL Server, HTML/CSS </div>
+                    <div class="tech-stack">Java, SQL Server, HTML/CSS The Titan - Nguyễn Hữu Bình + Java.pdf]</div>
                     <h3>FoodShop Website (Frean)</h3>
-                    <p style="color: var(--text-muted);">An e-commerce food platform allowing users to browse items, process shopping carts, and handle order status tracking.</p>
+                    <p style="color: var(--text-muted);">An e-commerce food platform allowing users to browse items, process shopping carts, and handle order status tracking The Titan - Nguyễn Hữu Bình + Java.pdf].</p>
                 </article>
 
                 <article class="project-card" data-category="web">
@@ -565,9 +637,32 @@ footer {
                 
                 <div class="contact-info">
                     <h3>Get In Touch</h3>
-                    <p><strong>Email:</strong> <a href="mailto:nguyenhuubinh2k5@gmail.com">nguyenhuubinh2k5@gmail.com</a> </p>
-                    <p><strong>Phone:</strong> <a href="tel:0846790998">0846790998</a></p>
-                    <p><strong>GitHub:</strong> <a href="https://github.com/Binh2k5" target="_blank" rel="noopener">github.com/Binh2k5</a></p>
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <span class="contact-item-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            </span>
+                            <p><strong>Email:</strong> <a href="mailto:nguyenhuubinh2k5@gmail.com">nguyenhuubinh2k5@gmail.com</a> The Titan - Nguyễn Hữu Bình + Java.pdf]</p>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-item-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.27-.26.35-.65.24-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.59c0-.55-.45-1-1-1z"/></svg>
+                            </span>
+                            <p><strong>Phone:</strong> <a href="tel:0846790998">0846790998</a> The Titan - Nguyễn Hữu Bình + Java.pdf]</p>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-item-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                            </span>
+                            <p><strong>GitHub:</strong> <a href="https://github.com/Binh2k5" target="_blank" rel="noopener">github.com/Binh2k5</a> The Titan - Nguyễn Hữu Bình + Java.pdf]</p>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-item-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </span>
+                            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nguy%E1%BB%85n-h%E1%BB%AFu-b%C3%ACnh-171904337/" target="_blank" rel="noopener">linkedin.com/in/nguyen-huu-binh</a></p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
